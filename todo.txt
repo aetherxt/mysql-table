@@ -1,7 +1,8 @@
-ui
-dynamic column
 advanced search
-    case sensitive
+    case sensitive & specific search
     recent 7 days
     bigger than/smaller than 
-checkbox for show advanced
+    data type
+
+edit delete column (confirm alert)
+active/inactive when delete 
