@@ -1,0 +1,7 @@
+ui
+dynamic column
+advanced search
+    case sensitive
+    recent 7 days
+    bigger than/smaller than 
+checkbox for show advanced

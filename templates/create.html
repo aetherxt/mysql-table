@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+{% endblock %}
+
+{% block navbar %}
+<ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+        <a class="nav-link" href="/">View Table</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/create">Create New Row</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block body %}
+<div class="container w-75 p-5 rounded-3">
+    <form class="form-signin rounded-3" action="/submit" method="POST">
+    <h1 class="m-3">Create New Row</h1>
+    <div class="input-group input-group-lg m-3">
+        <span class="input-group-text">Name</span>
+        <input type="text" class="form-control" placeholder="First name" name="firstname">
+        <input type="text" class="form-control" placeholder="Last name" name="lastname">
+    </div>
+    <div class="input-group input-group-lg m-3">
+        <span class="input-group-text">Birthday</span>
+        <input type="date" class="form-control" min="1900-1-1" max="2021-12-31" name="birth">
+    </div>
+    <div class="input-group input-group-lg m-3">
+        <div class="form-check-inline">
+            <input type="radio" class="form-check-input" id="male" name="sex" value="m">
+            <label for="male" class="form-check-label">Male</label>
+        </div>
+        <div class="form-check-inline">
+            <input type="radio" class="form-check-input" id="female" name="sex" value="f">
+            <label for="female" class="form-check-label">Female</label>
+        </div>
+        <div class="form-check-inline">
+            <input type="radio" class="form-check-input" id="other" name="sex" value="o">
+            <label for="other" class="form-check-label">Other</label>
+        </div>
+    </div>
+    <div class="m-3">
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+        <button type="reset" class="btn btn-outline-danger">Reset</button>
+    </div>
+    </form>
+</div>
+{% endblock %}
