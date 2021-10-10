@@ -20,6 +20,7 @@ sex = []
 updated = []
 searchlist = []
 listname = ["id", "firstname", "lastname", "birthdate", "sex", "last updated"]
+submitsuccess = False
 
 @app.route("/")
 @app.route("/home")
@@ -54,6 +55,8 @@ def home():
 
 @app.route("/create")
 def create():
+    global submitsuccess
+    submitsuccess = False
     return render_template("create.html", success=request.args.get('success'))
 
 @app.route("/search", methods=["POST"])
@@ -69,13 +72,14 @@ def search():
 
 @app.route("/submit", methods=["POST"])
 def reset():
-    success = False
+    global submitsuccess
+    submitsuccess = True
     fname = request.form["firstname"]
     lname = request.form["lastname"]
     birth = request.form["birth"]
     sex = request.form["sex"]
     print(fname, lname, birth, sex)
-    return redirect(url_for("home", success=success))
+    return redirect(url_for("create", success=submitsuccess))
 
 @app.route("/reset")
 def resetdata():
