@@ -2,6 +2,9 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+<script type="text/javascript">
+    var success = {{success}}
+</script>
 <script src="{{ url_for('static', filename='js/create.js') }}"></script>
 {% endblock %}
 
