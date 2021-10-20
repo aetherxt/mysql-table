@@ -56,8 +56,9 @@ def home():
 @app.route("/create")
 def create():
     global submitsuccess
+    success = submitsuccess
     submitsuccess = False
-    return render_template("create.html", success=request.args.get('success'))
+    return render_template("create.html", success=success)
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -79,7 +80,15 @@ def reset():
     birth = request.form["birth"]
     sex = request.form["sex"]
     print(fname, lname, birth, sex)
-    return redirect(url_for("create", success=submitsuccess))
+    return redirect(url_for("create"))
+
+@app.route("/edit", methods=["POST"])
+def edit():
+    return redirect(url_for("home"))
+
+@app.route("/delete", methods=["POST"])
+def delete():
+    return redirect(url_for("home"))
 
 @app.route("/reset")
 def resetdata():
