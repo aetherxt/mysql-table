@@ -29,4 +29,5 @@ def submitsignup(dbname, tablename):
         print("1 record inserted, ID:", mycursor.lastrowid)
     except:
         # error message
-        flash(f"{username} has already been registered!")
+        flash(f"{username} is already taken.")
+        print("lmao look at this dude imagine")
